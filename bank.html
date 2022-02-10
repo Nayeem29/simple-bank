@@ -16,28 +16,33 @@
         </h1>
     </header>
     <main class="">
+        <!-- showing status of the bank  -->
         <section class="grid grid-cols-3 gap-2 mt-16 w-3/4 mx-auto">
             <div class="deposit text-3xl font-semibold text-center bg-lime-400 py-12 border-2 rounded-lg">
                 <h3>Deposit</h3>
-                <p class="text-4xl">$00</p>
+                <p class="text-4xl" id="deposit">00</p>
             </div>
             <div class="withdraw text-3xl font-semibold text-center bg-pink-400 py-12 border-2 rounded-lg">
                 <h3>Withdraw</h3>
-                <p class="text-4xl">$00</p>
+                <p class="text-4xl" id="withdraw">00</p>
             </div>
             <div class="amount text-3xl font-semibold text-center bg-green-400 py-12 border-2 rounded-lg">
                 <h3>Amount</h3>
-                <p class="text-4xl">$00</p>
+                <p class="text-4xl" id="amount">00</p>
             </div>
         </section>
+
+        <!-- adding money to bank  -->
         <section class="grid grid-cols-2 gap-4 mt-16 w-3/4 mx-auto">
-            <div class="add-money text-3xl font-semibold text-center bg-lime-400 py-12 border-2 rounded-lg">
+            <div class=" text-3xl font-semibold text-center bg-lime-400 py-12 border-2 rounded-lg">
                 <p class="mb-4">Add Money to your Account</p>
-                <input type="number" name="Add Money" placeholder="$Deposit Amount" class="text-center border-inhirit rounded-lg outline-none">
+                <input type="number" name="Add Money" placeholder="$Deposit Amount" class="text-center border-inhirit rounded-lg outline-none add-money">
+                <button class="mt-4 px-4 py-2 mx-auto block text-white text-2xl font-semibold border-2 rounded-lg shadow-lg deposit-money">Deposit</button>
             </div>
-            <div class="take-money text-3xl font-semibold text-center bg-pink-400 py-12 border-2 rounded-lg">
+            <div class=" text-3xl font-semibold text-center bg-pink-400 py-12 border-2 rounded-lg">
                 <p class="mb-4">Take money from your Amount</p>
-                <input type="number" name="Take Money" placeholder="$Withdrawn Amount" class="text-center border-inhirit rounded-lg outline-none">
+                <input type="number" name="Take Money" placeholder="$Withdrawn Amount" class="text-center border-inhirit rounded-lg outline-none take-money">
+                <button class="mt-4 px-4 py-2 mx-auto block text-white text-2xl font-semibold border-2 rounded-lg shadow-lg withdraw-money">Withdraw</button>
             </div>
         </section>
     </main>
