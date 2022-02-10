@@ -11,7 +11,6 @@ submitButton.addEventListener('click', function() {
     if (((emailValue).includes('@gmail.com')) && (passValue != '')) {
         window.location.href = 'bank.html';
     } else alert('valid Email is required');
-    emailButton = '';
-    emailValue = '';
-
+    emailButton.value = '';
+    passwordButton.value = '';
 })
