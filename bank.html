@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-center text-7xl font-semibold leading-1 text-indigo-700 my-5">
+            Welcome to our <span class="text-red-500">Magical Bank</span>
+        </h1>
+    </header>
+    <main class="">
+        <section class="grid grid-cols-3 gap-2 mt-16 w-3/4 mx-auto">
+            <div class="deposit text-3xl font-semibold text-center bg-lime-400 py-12 border-2 rounded-lg">
+                <h3>Deposit</h3>
+                <p class="text-4xl">$00</p>
+            </div>
+            <div class="withdraw text-3xl font-semibold text-center bg-pink-400 py-12 border-2 rounded-lg">
+                <h3>Withdraw</h3>
+                <p class="text-4xl">$00</p>
+            </div>
+            <div class="amount text-3xl font-semibold text-center bg-green-400 py-12 border-2 rounded-lg">
+                <h3>Amount</h3>
+                <p class="text-4xl">$00</p>
+            </div>
+        </section>
+        <section class="grid grid-cols-2 gap-4 mt-16 w-3/4 mx-auto">
+            <div class="add-money text-3xl font-semibold text-center bg-lime-400 py-12 border-2 rounded-lg">
+                <p class="mb-4">Add Money to your Account</p>
+                <input type="number" name="Add Money" placeholder="$Deposit Amount" class="text-center border-inhirit rounded-lg outline-none">
+            </div>
+            <div class="take-money text-3xl font-semibold text-center bg-pink-400 py-12 border-2 rounded-lg">
+                <p class="mb-4">Take money from your Amount</p>
+                <input type="number" name="Take Money" placeholder="$Withdrawn Amount" class="text-center border-inhirit rounded-lg outline-none">
+            </div>
+        </section>
+    </main>
+    <script src="./js/bank.js"></script>
+</body>
+
+</html>
