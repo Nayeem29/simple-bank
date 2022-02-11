@@ -1,54 +1,73 @@
 const addMoney = document.querySelector('.deposit-money');
 const takeMoney = document.querySelector('.withdraw-money');
 
-let inputWithdrawAmount = document.querySelector('.withdraw-money').value;
-let totalTextAmount = document.querySelector('#amount');
-let totalAmount = parseFloat(totalTextAmount.innerText);
+let totalBankAmount = 0;
+//user input amount 
+function inputValueOfUser(inputValue) {
+    let inputTextAmount = document.querySelector(inputValue);
+    const currentValue = inputTextAmount.value;
+    const inputAmount = parseFloat(currentValue);
+    inputTextAmount.value = '';
+    return inputAmount;
+
+}
+
+//deposit or withdraw amount
+function giveOrtakeAmount(inputField, previousValue, check) {
+
+    let previousTextValue = document.querySelector(previousValue);
+    const currentAmount = previousTextValue.innerText;
+    const previousAmount = parseFloat(currentAmount);
+    if (check) {
+        if (inputField > totalBankAmount) {
+            previousTextValue.innerText = previousAmount;
+        } else previousTextValue.innerText = inputField + previousAmount;
+    } else previousTextValue.innerText = inputField + previousAmount;
+
+}
+
+
+//total amount in the bank
+function totalAmountInAccount(userMoney, isDeposit) {
+    let totalTextAmount = document.querySelector('#amount');
+    const totalAmount = parseFloat(totalTextAmount.innerText);
+    totalBankAmount = totalAmount;
+    if (isDeposit) {
+        totalBankAmount = totalAmount + userMoney;
+    } else if (totalAmount < userMoney) {
+
+        alert('insufficient balance');
+    } else totalBankAmount = totalAmount - userMoney;
+    totalTextAmount.innerText = totalBankAmount;
+}
+
+
 
 
 // Deposit money: 
 addMoney.addEventListener('click', function() {
-    let textDepositAmount = document.querySelector('.add-money');
-    const inputDepositAmount = parseFloat(textDepositAmount.value); //input deposit value
-    console.log(inputDepositAmount);
-    if (inputDepositAmount < 0) {
-        alert('please provide valid amount');
-    } else {
-        let totalDeposit = document.querySelector('#deposit'); //total deposit value
-        let currentDeposit = parseFloat(totalDeposit.innerText);
-        console.log(currentDeposit);
-        newTotalDeposit = inputDepositAmount + currentDeposit;
-        console.log(newTotalDeposit);
-        totalDeposit.innerText = newTotalDeposit;
-
-        //total amount
-        totalAmount = totalAmount + inputDepositAmount;
-        console.log(totalAmount);
-        totalTextAmount.innerText = totalAmount;
-
+    // debugger
+    const inputAmountOfUser = inputValueOfUser('.add-money');
+    if (inputAmountOfUser > 0) {
+        giveOrtakeAmount(inputAmountOfUser, '#deposit', false);
+        totalAmountInAccount(inputAmountOfUser, true);
     }
-    textDepositAmount.value = '';
+
+
 })
 
 
 //withdraw money from account
 takeMoney.addEventListener('click', function() {
-    let textWithdrawAmount = document.querySelector('.take-money');
-    const inputWithdrawAmount = parseFloat(textWithdrawAmount.value);
-    if (inputWithdrawAmount < 0) {
-        alert('invalid amount request');
-    } else if (inputWithdrawAmount > totalAmount) {
-        alert('not available balance,please deposit first');
-    } else {
-        let withdrawnMoney = document.querySelector('#withdraw');
-        let withdrawnMoneyValue = parseFloat(withdrawnMoney.innerText);
-        let totalWithdrawnAmount = withdrawnMoneyValue + inputWithdrawAmount;
-        withdrawnMoney.innerText = totalWithdrawnAmount;
+
+    const inputAmountOfUser = inputValueOfUser('.take-money');
+    if (inputAmountOfUser > 0) {
 
         //total account balance:
-        totalAmount = totalAmount - inputWithdrawAmount;
-        console.log(totalAmount);
-        totalTextAmount.innerText = totalAmount;
+
+        giveOrtakeAmount(inputAmountOfUser, '#withdraw', true);
+        totalAmountInAccount(inputAmountOfUser, false);
+
     }
-    textWithdrawAmount.value = '';
+
 })
